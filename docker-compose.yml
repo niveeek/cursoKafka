@@ -34,6 +34,28 @@ services:
     environment:
       KAFKA_BROKERCONNECT: kafka:29092
 
+  str-producer:
+    image: niveekdev/str-producer:latest
+    networks:
+      - broker-kafka
+    depends-on:
+      - kafka
+    ports:
+      - "8000:8000"
+    environment:
+      KAFKA_HOST: kafka:29092
+
+  str-consumer:
+    image: niveekdev/str-consumer:lastest
+    networks:
+      - broker-kafka
+    depends-on:
+      - kafka
+    ports:
+      - "8100:8100"
+    environment:
+      KAFKA_HOST: kafka:29092
+
 networks:
   broker-kafka:
     driver: bridge
