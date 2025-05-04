@@ -38,18 +38,18 @@ services:
     image: niveekdev/str-producer:latest
     networks:
       - broker-kafka
-    depends-on:
+    depends_on:
       - kafka
     ports:
-      - "8000:8000"
+      - "8080:8080"
     environment:
       KAFKA_HOST: kafka:29092
 
   str-consumer:
-    image: niveekdev/str-consumer:lastest
+    image: niveekdev/str-consumer:latest
     networks:
       - broker-kafka
-    depends-on:
+    depends_on:
       - kafka
     ports:
       - "8100:8100"
