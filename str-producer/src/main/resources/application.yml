@@ -1,7 +1,7 @@
 server:
-  port: ${PORT:8000}
+  port: 8000
 
 spring:
   kafka:
     producer:
-      bootstrap-servers: ${KAFKA_HOST:localhost:29092}
+      bootstrap-servers: localhost:9092
